@@ -1,5 +1,5 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   line-height: 1;
 }
@@ -24,6 +24,7 @@ header {
 
 .description {
   white-space: pre-wrap;
+  flex: 3;
 }
 
 .time-block {
@@ -35,12 +36,19 @@ header {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
+  display: flex;
+  align-items: stretch;
 }
 
 .hour {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  flex: 1;
+  /* center horizontally and vertically */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .past {
@@ -64,6 +72,10 @@ header {
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
   color: white;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .saveBtn i:hover {
