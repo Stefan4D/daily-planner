@@ -1,20 +1,21 @@
 // - Save the event in local storage when the save button is clicked in that timeblock.
-// const testEvents = {
-//   "9AM": "The 9am event",
-//   "10AM": "test",
-//   "11AM": "test",
-//   "12PM": "test",
-//   "1PM": "test",
-//   "2PM": "test",
-//   "3PM": "test",
-//   "4PM": "test",
-//   "5PM": "The 5pm event",
-//   "6PM": "Write some JQuery",
-//   "7PM": "Debug my JQuery",
-//   "8PM": "Run away from JQuery",
-//   "9PM": "test",
-//   "10PM": "test",
-// };
+const testEvents = {
+  "9AM": "The 9am event",
+  "10AM": "test",
+  "11AM": "test",
+  "12PM": "test",
+  "1PM": "test",
+  "2PM": "test",
+  "3PM": "test",
+  "4PM": "test",
+  "5PM": "The 5pm event",
+  "6PM": "Write some JQuery",
+  "7PM": "Debug my JQuery",
+  "8PM": "Run away from JQuery",
+  "9PM": "test",
+  "10PM": "test",
+};
+// uncomment this to add test events to local storage
 // localStorage.setItem("events", JSON.stringify(testEvents));
 const savedEvents = JSON.parse(localStorage.getItem("events")) || {};
 
@@ -70,8 +71,7 @@ for (let i = 9; i < 22; i++) {
   container.append(row);
 }
 
-// originally used the .savBtn class to target the save button, but this made the entire div the save button
-// so changed to use the font awesome icon instead
+// originally used the .savBtn class to target the save button, but this made the entire div the save button so changed to use the font awesome icon instead
 // changed event handler to use .parent() to get the correct element as the icon is the target but has no siblings so need to go up to the parent
 const saveBtn = $(".fa-save");
 

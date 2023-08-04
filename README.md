@@ -21,9 +21,12 @@ The app should:
 ## Resources used
 
 - [JQuery Docs: Siblings](https://api.jquery.com/siblings/)
+- [Stack Overflow: Parent/Sibling selector](https://stackoverflow.com/questions/6577228/jquery-parent-sibling-selector)
+- [Day.js: isAfter function](https://day.js.org/docs/en/query/is-after#docsNav)
 
 ## Learning Outcomes
 
 - I learned how to use the JQuery core and UI libraries to rapidly prototype applications
-- I learned about the .siblings() method in JQuery, which is a very useful way to grab an element in the DOM that is related to the current item (using the this keyword), which allowed me to succinctly delegate events and save changes made by the user
+- I learned about the .parent() and .siblings() methods in JQuery, which is a very useful way to grab an element in the DOM that is related to the parent of the current item (using the this keyword), which allowed me to succinctly delegate events and save changes made by the user
 - I revisited flexbox in order to get the content to display correctly and mimic the example provided
+- I learned how to get the time in a specific format from Day.js, which I was then able to use in my JSON object to easily store and retrieve events at particular time-slots

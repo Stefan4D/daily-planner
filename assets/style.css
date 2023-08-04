@@ -24,7 +24,7 @@ header {
 
 .description {
   white-space: pre-wrap;
-  flex: 3;
+  flex: 7;
 }
 
 .time-block {
@@ -45,7 +45,6 @@ header {
   color: #000000;
   border-top: 1px dashed #000000;
   flex: 1;
-  /* center horizontally and vertically */
   display: flex;
   align-items: center;
   justify-content: center;
