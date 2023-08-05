@@ -15,23 +15,23 @@ const testEvents = {
   "9PM": "test",
   "10PM": "test",
 };
-// uncomment this to add test events to local storage
+// uncomment below to add test events to local storage
 // localStorage.setItem("events", JSON.stringify(testEvents));
 const savedEvents = JSON.parse(localStorage.getItem("events")) || {};
 
-// - Display the current day at the top of the calendar when a user opens the planner.
+// Displays the current day at the top of the calendar when a user opens the planner
 // using this plugin to allow for ordinal to be included (1st, 2nd, 3rd etc)
 dayjs.extend(window.dayjs_plugin_advancedFormat);
 const today = dayjs().format("dddd Do MMMM YYYY");
 const currentDay = $("#currentDay");
 currentDay.text(today);
 
-// - Present timeblocks for standard business hours when the user scrolls down.
 const container = $(".container");
 const saveState = $("#save-state");
 
-// for loop to cycle through hours from 9AM to 5PM using Day.js
-for (let i = 9; i < 22; i++) {
+// Presents timeblocks for standard business hours when the user scrolls down
+// Uses for loop to cycle through hours from 9AM to 5PM using Day.js
+for (let i = 9; i < 18; i++) {
   // cannot use .format() here otherwise it interferes with the comparison below
   const now = dayjs();
   const time = dayjs().hour(i).minute(0).second(0);
@@ -42,7 +42,8 @@ for (let i = 9; i < 22; i++) {
   const hour = $("<div>");
   row.addClass("row");
 
-  // compares the 2 Day.js objects without formatting
+  // Color-code each timeblock based on past, present, and future when the timeblock is viewed.
+  // compares the 2 Day.js objects without formatting and applies the correct CSS class
   if (time.isSame(now, "hour")) {
     textArea.addClass("description present");
   } else if (now.isAfter(time)) {
@@ -52,12 +53,11 @@ for (let i = 9; i < 22; i++) {
   }
 
   // need to use the formatted time here to match the savedEvents object keys
-  textArea.text(savedEvents[formattedTime] || "");
+  textArea.text(savedEvents[formattedTime] || ""); // if there is nothing in local storage then use an empty string
   textArea.attr("id", formattedTime);
 
   saveButton.addClass("saveBtn");
   saveButton.attr("data-time", formattedTime);
-  //   saveButton.text("Save");
   // add font awesome icon to save button
   saveButton.append('<i class="fas fa-save"></i>');
 
@@ -86,15 +86,3 @@ saveBtn.on("click", function () {
   localStorage.setItem("events", JSON.stringify(savedEvents));
   saveState.text("Saved!");
 });
-
-// implement a loop to go from 9am to 5pm
-// add a .row for each hour timeslot
-// apply .past / .present / .future based on relative time to now
-// each time block is an input field to allow for editing (or textarea)
-// save icon to right of each row with event listener attached to save to localStorage
-
-// - Color-code each timeblock based on past, present, and future when the timeblock is viewed.
-
-// - Allow a user to enter an event when they click a timeblock.
-
-// - Persist events between refreshes of a page.
